@@ -24,13 +24,24 @@ $contactos= $stm->fetchAll(PDO::FETCH_ASSOC);
 
 
 <h4 text="center">Auxiliary Nursing - Health and Life</h4>
-<!-- Button trigger modal -->
+<!-- Button trigger modal 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   New
-</button>
+</button>-->
+
+<script>
+    function confirmar(){
+        var respuesta = confirm("Are you sure to delete this record ?");
+        if(respuesta == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 
 <!--<a class="btn btn-primary" type="submit" href="../../modules/contactos/create.php/" role="button">Create</a>-->
-
+<a href="create.php" class="btn btn-success">New</a>
 
 <div class="table-responsive">
     <table class="table">
@@ -58,7 +69,8 @@ $contactos= $stm->fetchAll(PDO::FETCH_ASSOC);
                 <td scope="row"><?php echo $contacto['valor'];?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $contacto['id'];?>" class="btn btn-success">Edit</a>
-                        <a href="index.php?id=<?php echo $contacto['id'];?>" class="btn btn-danger">Delete</a>
+                        <a href="index.php?id=<?php echo $contacto['id'];?>" class="btn btn-danger" onclick="return confirmar()">Delete</a>
+                        
                     </td>
             </tr>
 
@@ -66,7 +78,5 @@ $contactos= $stm->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 </div>
-
-<?php include ("../../modules/contactos/create.php"); ?>
 
 <?php include ("../../template/footer.php"); ?>

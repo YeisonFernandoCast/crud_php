@@ -13,9 +13,14 @@ include ("template/footer.php");
     <title>Document</title>
 </head>
 <body>
-    <h2>Welcome</h2>
-    <h3>Auxiliary Nursing - Health and Life</h3>
-    <h3>YAC - Software Developer 2023/h3>
+    <div class="card text-center">
+      <div class="card-header">
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Auxiliary Nursing - Health and Life</h4>
+        <p class="card-text">YAC - Software Developer 2023</p>
+      </div>
+    </div>
 
 </body>
 </html>

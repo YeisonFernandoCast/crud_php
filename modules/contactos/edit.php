@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
     $valor=(isset($_POST['valor'])?$_POST['valor']:"");
 
     $stm=$conexion->prepare("UPDATE usuarios SET nombre=:nombre, telefono=:telefono, fecha=:fecha, estado=:estado, valor=:valor WHERE id=:txtid");
-    $stm-> bindParam(":txtid", $txtid);
+    $stm->bindParam(":txtid", $txtid);
     $stm->bindParam(":nombre", $nombre);
     $stm->bindParam(":telefono", $telefono);
     $stm->bindParam(":fecha", $fecha);

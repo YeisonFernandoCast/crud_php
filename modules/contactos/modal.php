@@ -1,6 +1,4 @@
 <?php
-include("../../conexion.php");
-include ("../../template/header.php"); 
 
 //CREATE
 
@@ -12,7 +10,6 @@ include ("../../template/header.php");
     $fecha=(isset($_POST['fecha'])?$_POST['fecha']:"");
     $estado=(isset($_POST['estado'])?$_POST['estado']:"");
     $valor=(isset($_POST['valor'])?$_POST['valor']:"");
-
 
     $stm=$conexion->prepare("INSERT INTO usuarios (nombre, telefono, fecha, estado, valor) VALUES (:nombre, :telefono, :fecha, :estado, :valor)");
     $stm->bindParam(":nombre", $nombre);
@@ -26,11 +23,19 @@ include ("../../template/header.php");
   }
 
 ?>
-
-    <form action="" method="POST">
-  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+          <div class="modal-body">    
       <div class="from">
-      <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
         <label for="">Name</label>
         <input type="text" class="form-control" name="nombre" placeholder="type name">
 
@@ -49,10 +54,14 @@ include ("../../template/header.php");
 
       </div>
       <div class="modal-footer">
-        <a href="index.php" class= "btn btn-danger">Cancel</a>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
       </form>
+    </div>
+  </div>
+</div>
+
 
 
 
